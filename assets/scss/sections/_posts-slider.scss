@@ -1,0 +1,148 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Posts Slider Section
+--------------------------------------------------------------*/
+.posts-slider {
+  position: relative;
+  overflow: hidden;
+
+  .swiper-wrapper {
+    height: auto !important;
+    margin-bottom: 20px;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 44px;
+    height: 44px;
+    background-color: var(--surface-color);
+    border-radius: 50%;
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    color: var(--heading-color);
+    transition: all 0.3s ease-in-out;
+
+    &::after {
+      font-size: 20px;
+    }
+
+    &:hover {
+      background-color: var(--accent-color);
+      color: var(--contrast-color);
+      border-color: var(--accent-color);
+    }
+  }
+
+  .post-item {
+    background-color: var(--surface-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: translateY(-5px);
+
+      .post-title {
+        color: var(--accent-color);
+      }
+    }
+
+    .post-img {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .post-category {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        background-color: var(--accent-color);
+        color: var(--contrast-color);
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+
+    .post-content {
+      padding: 24px;
+
+      .post-meta {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 12px;
+        font-size: 14px;
+        color: color-mix(in srgb, var(--default-color), transparent 40%);
+
+        i {
+          margin-right: 6px;
+          font-size: 16px;
+        }
+      }
+
+      .post-title {
+        font-size: 20px;
+        line-height: 1.4;
+        margin-bottom: 16px;
+        transition: color 0.3s ease-in-out;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .post-excerpt {
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        color: color-mix(in srgb, var(--default-color), transparent 25%);
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .read-more {
+        display: inline-flex;
+        align-items: center;
+        font-weight: 500;
+        font-size: 15px;
+
+        i {
+          margin-left: 6px;
+          transition: transform 0.3s ease;
+        }
+
+        &:hover {
+          i {
+            transform: translateX(5px);
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 991px) {
+    .post-item {
+      .post-content {
+        padding: 20px;
+
+        .post-title {
+          font-size: 18px;
+        }
+
+        .post-excerpt {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
